@@ -1,0 +1,7 @@
+<h1 class="my-4">Pratos do dia</h1>
+              <div class="list-group">
+                <% @categories.each do |category| %>
+                    <br>
+                    <%= link_to "#{category.name}", site_foods_index_path(category), class: "list-group-item" %>
+                <% end %>
+              </div>

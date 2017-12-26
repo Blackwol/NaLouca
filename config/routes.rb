@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+    get 'categories/index'
+    get 'foods/index'
+    get 'admins/index'
+    resources :foods
+  end
+
+  namespace :site do
+    get 'home/index'
+    get 'foods/index'
+    resources :food_detail, only: [:show]
+    resources :comments, only: [:create]
+  end
+
+  get 'admin', to: 'backoffice/dashboard#index'
+
+  namespace :backoffice do
+    get 'dashboard', to: 'dashboard#index'
+  end
+
+  resources :foods
+  resources :categories
+  devise_for :admins
+  root 'site/home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

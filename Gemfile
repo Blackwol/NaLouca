@@ -5,6 +5,26 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Tradução
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap.growl', source: 'https://rails-assets.org'
+gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
+gem 'rails-assets-animate-css', source: 'https://rails-assets.org'
+# Fotos
+gem 'paperclip', '~> 5.0.0'
+# Gerar coisas falsas para teste
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'lerolero_generator'
+# Autenticação
+gem 'devise'
+gem 'wiselinks'
+# Paginação
+gem 'kaminari'
+gem 'kaminari-i18n'
+# Rails gem for the bootstrap based admin theme SB admin 2
+gem 'bootstrap_sb_admin_base_v2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

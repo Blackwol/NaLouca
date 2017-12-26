@@ -1,0 +1,63 @@
+  <% if @food.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+        <ul>
+        <% @food.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <%= action %>
+  <%=form_for(@food) do |f|%>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group"> 
+          <%= f.label :title%>
+          <%= f.text_field :title, class: "form-control", placeholder: "Título" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <div class="form-group">
+          <%= f.label :price%>
+          <div class = "input-group">
+            <div class="input-group-addon">
+              R$
+            </div>
+            <%= f.text_field :price, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <%= f.label :category%>
+          <%= f.collection_select :category_id, Category.all, :id, :name, {}, { class:"form-control" } %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <%= f.label :picture %> <br>
+          <%= image_tag @food.picture(:medium), class: "img-circle" %>
+          <%= f.file_field :picture %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <%= f.label :description%>
+          <%= f.text_area :description, class: "form-control", rows: 10%>
+        </div>
+      </div>
+    </div>
+
+    <%= submit_tag "Enviar", class:"btn btn-default" %>
+  <% end %>
+
