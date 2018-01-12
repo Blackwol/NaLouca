@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'foods/index'
     resources :food_detail, only: [:show]
     resources :comments, only: [:create]
+    resources :contacts
+    resources :person
   end
 
   get 'admin', to: 'backoffice/dashboard#index'

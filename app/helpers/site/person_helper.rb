@@ -1,0 +1,2 @@
+module Site::PersonHelper
+end
